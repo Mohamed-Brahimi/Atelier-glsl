@@ -1,0 +1,36 @@
+{
+  "name": "GLSL Development",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "slevesque.shader",
+        "raczzalan.webgl-glsl-editor",
+        "circledev.glsl-canvas",
+        "dtoplak.vscode-glsllint"
+      ],
+      "settings": {
+        "files.associations": {
+          "*.frag": "glsl",
+          "*.vert": "glsl",
+          "*.glsl": "glsl"
+        },
+        "glsl-canvas.refreshOnChange": true,
+        "glsl-canvas.timeout": 0
+      }
+    }
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    }
+  },
+
+  "postCreateCommand": "npm install -g http-server glslify",
+
+  "forwardPorts": [8080],
+
+  "remoteUser": "vscode"
+}
